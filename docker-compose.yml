@@ -1,22 +1,26 @@
 version: '2.1'
 services:
-  postgres:
+  psql:
     container_name: clair_postgres
     image: postgres:9.6.1-alpine
     restart: unless-stopped
     environment:
       POSTGRES_PASSWORD: password
+    ports:
+      - 5432
+    volumes:
+      - ./data:/var/lib/postgresql/data
 
   clair:
     container_name: clair_clair
     image: quay.io/coreos/clair:v1.2.2
     restart: unless-stopped
     depends_on:
-      - postgres
+      - psql
     ports:
       - "6060-6061:6060-6061"
     links:
-      - postgres
+      - psql
     volumes:
       - /tmp:/tmp
       - ./config:/config
