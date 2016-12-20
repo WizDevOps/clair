@@ -1,4 +1,0 @@
-- hosts: staging
-  
-  tasks:
-    - name: pull up container

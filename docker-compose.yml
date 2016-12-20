@@ -19,5 +19,5 @@ services:
       - postgres
     volumes:
       - /tmp:/tmp
-      - ./clair_config:/config
+      - ./config:/config
     command: [-config, /config/config.yaml]
