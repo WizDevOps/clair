@@ -19,7 +19,7 @@ clair:
     type: pgsql
     # PostgreSQL Connection string
     # https://www.postgresql.org/docs/current/static/libpq-connect.html#LIBPQ-CONNSTRING
-    source: postgresql://psql:password@psql:5432?sslmode=disable
+    source: postgresql://postgres:password@postgres:5432?sslmode=disable
     options:
 
       # Number of elements kept in the cache
